@@ -3,9 +3,14 @@
 ---
 
 ## 📖 Översikt
-I denna laboration ska du skapa EN GitHub Actions workflow som demonstrerar förståelse för CI/CD pipelines. Du kommer att implementera olika triggers, matrix builds och context variables.
+I denna laboration ska ni skapa EN GitHub Actions workflow som demonstrerar förståelse för CI/CD pipelines. Du kommer att implementera olika triggers, matrix builds och context variables.
 
 ## 🎯 Lärandemål
+I denna uppgift kommer testa att ni kan:
+- *sätta upp enklare pipelines för automatisering av testning, integration och produktionssättning (för ett givet projekt). hantera förgrening i versionshanteringsverktyg*
+
+Och det gör vi genom att ni får visa att ni kan:
+
 - ✅ Konfigurera olika workflow triggers
 - ✅ Implementera matrix strategies för cross-platform builds
 - ✅ Arbeta med context variables och JSON output
@@ -89,6 +94,14 @@ Skicka en notifikation till Discord när workflow är klar:
 
 ## 🔶 Valfria Utökningar som vore kul att se 😊
 Här är idéer på extra funktionaliteter som ni antigen kan implementera i samma workflow eller i nya.
+
+### **Path Filtering (Smart Trigger)**
+- Konfigurera workflow att endast köras vid ändringar i kodfiler
+- Använd `paths` eller `paths-ignore` för att exkludera dokumentationsfiler:
+  - Kör **EJ** på ändringar av `.md` filer (README, dokumentation)
+  - Kör **EJ** på ändringar av `.github/workflows/` ändringar (undvik loop)
+  - Kör på ändringar av källkodsfiler (`.cs`, `.csproj`, etc.)
+
 
 ### **Environment Simulation**
 - Konfigurera jobbet att köra i den miljö som specificeras via input
