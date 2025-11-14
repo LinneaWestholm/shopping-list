@@ -6,7 +6,7 @@ namespace ShoppingList.Application.Services;
 
 public class ShoppingListService : IShoppingListService
 {
-    private ShoppingItem[] _items = new ShoppingItem[9];
+    private ShoppingItem[] _items = new ShoppingItem[100];
     private int _nextIndex;
 
     public ShoppingListService()
@@ -16,10 +16,17 @@ public class ShoppingListService : IShoppingListService
         // _items = GenerateDemoItems();
         _nextIndex = 0; 
     }
-
     public IReadOnlyList<ShoppingItem> GetAll()
     {
-        return _items;
+        ShoppingItem[] result = new ShoppingItem[_nextIndex];
+        
+
+        for (int i = 0; i < _nextIndex; i++)
+        {
+            result[i] = _items[i];
+        }
+        
+        return result;
     }
 
     public ShoppingItem? GetById(string id)

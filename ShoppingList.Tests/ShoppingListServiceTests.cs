@@ -8,8 +8,6 @@ namespace ShoppingList.Tests;
 public class ShoppingListServiceTests
 {
     // TODO: Write your tests here following the TDD workflow
-
-
    
     [Fact]
     public void Add_ShouldReturnShoppingItemWithCorrectValues()
@@ -43,9 +41,24 @@ public class ShoppingListServiceTests
         var actual = service.GetAll();
         Assert.Equal(expected, actual.Count);
     }
-    
-    
-    
-    
+    [Fact]
+    public void GetAll_returnsCorrectItems()
+    {
+        // Arrange
+        var service = new ShoppingListService();
+        service.Add("Milk", 2, "we need this");
+        service.Add("Apple", 2, "we need this");
+        service.Add("Sugar", 2, "we need this");
+        
+        //Act
+        var items = service.GetAll();
+        var names = items.Select(x => x.Name).ToArray();
+        
+        //Asert
+        Assert.Contains("Milk", names);
+        Assert.Contains("Apple", names);
+        Assert.Contains("Sugar", names);
+        
+    }
 }
 
